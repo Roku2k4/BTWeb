@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ex2/style.css"> <!-- gọi file CSS ở đây -->
+    <title>Cửa hàng Sách ABC</title>
+</head>
+<script src="/ex3/script1.js"></script>
+<script src="/ex5/script3.js"></script>
+<!-- <script src="/ex4/script2.js"></script> -->
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Cửa hàng Sách ABC</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Phần giới thiệu -->
+        <section>
+            <h2>Chào mừng đến với Cửa hàng Sách ABC</h2>
+            <p>Chúng tôi cung cấp các đầu sách chất lượng cao với giá cả hợp lý. Khám phá bộ sưu tập sách đa dạng của chúng tôi từ văn học, khoa học đến kỹ năng sống.</p>
+        </section>
+
+
+        <!--Search-->
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+            <button id="searchBtn">Tìm</button>
+        </div>
+
+        <!-- Danh sách sản phẩm -->
+        <section>
+            <div class="add">
+                <h2>Sản phẩm nổi bật</h2>
+                <button id="addProductBtn">Thêm Sản Phẩm Mới</button>
+            </div>
+
+            <!-- Thêm sản phẩm mới -->
+        <form id="addProductForm" class="hidden"> 
+            <h3>Thêm Sản Phẩm Mới</h3>
+            
+            <div>
+                <label for="product-name">Tên sản phẩm:</label>
+                <input type="text" id="product-name" name="product-name" placeholder="Nhập tên sản phẩm" required>
+            </div>
+            
+            <div>
+                <label for="product-image">Link ảnh sản phẩm:</label>
+                <input type="url" id="product-image" name="product-image" placeholder="https://example.com/image.jpg" required>
+            </div>
+            
+            <div>
+                <label for="product-description">Mô tả sản phẩm:</label>
+                <textarea id="product-description" name="product-description" rows="4" placeholder="Nhập mô tả sản phẩm" required></textarea>
+            </div>
+            
+            <div>
+                <label for="product-price">Giá sản phẩm (VNĐ):</label>
+                <input type="number" id="product-price" name="product-price" placeholder="99000" min="0" required>
+            </div>
+            
+            <button type="submit">Thêm Sản Phẩm</button>
+            <button type="button" id="cancelBtn">Hủy</button>
+        </form>
+                        
+            <div class="filter-section">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+                    <button id="searchBtn">Tìm</button>
+                </div>
+                
+                <select id="priceRange">
+                    <option value="">Tất cả giá</option>
+                    <option value="0-100000">Dưới 100,000đ</option>
+                    <option value="100000-200000">100,000đ - 200,000đ</option>
+                    <option value="200000">Trên 200,000đ</option>
+                </select>
+                
+                <select id="categorySelect">
+                    <option value="">Tất cả danh mục</option>
+                    <option value="programming">Lập trình</option>
+                    <option value="web">Web</option>
+                    <option value="framework">Framework</option>
+                </select>
+            </div>
+            
+            <div class="sort-buttons">
+                <button onclick="sortProducts('name')">Sắp xếp theo tên</button>
+                <button onclick="sortProducts('price')">Sắp xếp theo giá</button>
+            </div>
+            <div id="product-list">
+                    <!-- Sản phẩm 1 -->
+                <article class="product-item">
+                    <img src="https://th.bing.com/th/id/OIP.NUJ42q3gZ-QaAf3xvEla_AHaEK?w=322&h=181&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Đắc Nhân Tâm">
+                    <h3>Đắc Nhân Tâm</h3>
+                    <p>Cuốn sách kinh điển về nghệ thuật giao tiếp và ứng xử, giúp bạn thành công trong công việc và cuộc sống.</p>
+                    <p><strong>Giá:</strong> <span>89,000 VNĐ</span></p>
+                </article>
+
+                <!-- Sản phẩm 2 -->
+                <article class="product-item">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.5aU8pxd7v9U4KqjfswUgBwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Nhà Giả Kim">
+                    <h3>Nhà Giả Kim</h3>
+                    <p>Tác phẩm văn học nổi tiếng của Paulo Coelho kể về hành trình tìm kiếm ước mơ và ý nghĩa cuộc sống.</p>
+                    <p><strong>Giá:</strong> <span>79,000 VNĐ</span></p>
+                </article>
+
+                <!-- Sản phẩm 3 -->
+                <article class="product-item">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.e6jaXLShNt_lHcsjTY99cwHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sapiens">
+                    <h3>Sapiens - Lược Sử Loài Người</h3>
+                    <p>Cuốn sách khám phá lịch sử tiến hóa của loài người từ thời kỳ đồ đá đến thời đại công nghệ.</p>
+                    <p><strong>Giá:</strong> <span>199,000 VNĐ</span></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Form liên hệ -->
+        <section>
+            <h2>Liên hệ với chúng tôi</h2>
+            <form>
+                <!-- Nhập tên -->
+                <div>
+                    <label for="name">Họ và tên:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <!-- Nhập email -->
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <!-- Nhập nội dung -->
+                <div>
+                    <label for="message">Nội dung:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <!-- Nút gửi -->
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Cửa hàng Sách ABC. Địa chỉ: 123 Đường Đại Cồ Việt, Hà Nội</p>
+        <p>Email: contact@sachabc.com | Điện thoại: 024-1234-5678</p>
+    </footer>
+</body>
+</html>

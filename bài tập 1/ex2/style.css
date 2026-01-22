@@ -1,0 +1,206 @@
+body {
+    font-family: sans-serif; 
+    line-height: 1.6; 
+}
+
+header {
+    background-color: rgb(58, 72, 84); 
+    padding-bottom: 26px; 
+    padding-top: 20px;
+    text-align: center; 
+    color: aliceblue;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+}
+
+nav ul li { 
+    margin-right: 20px;
+}
+
+a {
+    color: white; 
+    text-decoration: none; 
+    margin: 0 15px; 
+}
+
+/*Main*/
+section {
+    margin: 20px; 
+}
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.product-item{
+    flex: 1 1 30%; /* mỗi sản phẩm chiếm ~30% chiều ngang, co giãn linh hoạt */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.product-item img {
+    max-width: 80%;
+    height: auto;
+}
+
+.product-item h3 {
+    margin-top: 5px;
+    font-size: 24px;
+}
+
+/*form*/
+form { 
+    max-width: 400px;
+    margin: 20px auto; 
+}
+
+form input, form textarea {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+button {
+    background-color: rgb(58, 72, 84); 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+/*Footer*/
+footer {
+    background-color: rgb(58, 72, 84); 
+    color: white; 
+    text-align: center; 
+    padding: 10px; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+/*search*/
+.search {
+    text-align: center; 
+    margin: 20px 0; 
+}
+
+.search input {
+    width: 60%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+/*thêm sản phẩm*/
+.add {
+    display: flex; 
+    margin-bottom: 20px; 
+    gap: calc(1990px/2);
+}
+
+.hidden {
+    display: none; 
+}
+
+/* Sản phẩm mới có thể có badge hoặc style khác */
+.product-item.new-product {
+    position: relative;
+}
+
+.product-item.new-product::after {
+    content: 'MỚI';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/*form*/
+#addProductForm {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #f9f9f9;
+    border: 2px solid rgb(58, 72, 84);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#addProductForm h3 {
+    text-align: center;
+    color: rgb(58, 72, 84);
+    margin-bottom: 20px;
+}
+
+#addProductForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#addProductForm input,
+#addProductForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#addProductForm input:focus,
+#addProductForm textarea:focus {
+    outline: none;
+    border-color: rgb(58, 72, 84);
+    box-shadow: 0 0 5px rgba(58, 72, 84, 0.3);
+}
+
+#addProductForm button {
+    margin-right: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+}
+
+#addProductForm button[type="button"] {
+    background-color: #6c757d;
+}
+
+#addProductForm button[type="button"]:hover {
+    background-color: #5a6268;
+}
+
+/*responsive*/
+@media (max-width: 600px) {
+    #product-list {
+        flex-direction: column;
+    }
+    .product-item {
+    flex: 1 1 100%;
+    }
+    nav ul {
+        flex-direction: column; /* menu dọc trên mobile */
+    }
+    nav ul li {
+        margin: 5px 0; /* khoảng cách các mục menu dọc */
+    }
+}
